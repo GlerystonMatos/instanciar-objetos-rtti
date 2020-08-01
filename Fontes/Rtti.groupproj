@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{1DD874C4-1EF4-4A47-A5E8-64375F2859F3}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="InstanciarObjetosRtti.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="InstanciarObjetosRtti">
+        <MSBuild Projects="InstanciarObjetosRtti.dproj"/>
+    </Target>
+    <Target Name="InstanciarObjetosRtti:Clean">
+        <MSBuild Projects="InstanciarObjetosRtti.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="InstanciarObjetosRtti:Make">
+        <MSBuild Projects="InstanciarObjetosRtti.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="InstanciarObjetosRtti"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="InstanciarObjetosRtti:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="InstanciarObjetosRtti:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
